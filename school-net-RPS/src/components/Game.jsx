@@ -12,7 +12,9 @@ const RockPaperScissors = () => {
   const [isAuth, setIsAuth] = useState(false);
   const choices = ["rock", "paper", "scissors"];
 
+
   useEffect(() => {
+
     // Check user authentication
     const userAuth = localStorage.getItem("game-user");
     if (userAuth) {
@@ -33,7 +35,7 @@ const RockPaperScissors = () => {
   }, [isAuth]);
 
   useEffect(() => {
-    // Save scores to localStorage whenever they change
+    // Save scores to localStorage - change
     if (isAuth) {
       localStorage.setItem("scores", JSON.stringify(scores));
     }
