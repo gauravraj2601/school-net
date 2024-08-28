@@ -1,14 +1,16 @@
 import React from "react";
-
-const ChoiceButton = ({ choice, onClick, isSelected }) => {
+import rock from "../Assets/rock.png";
+import paper from "../Assets/paper.png";
+import scissor from "../Assets/scissor.png";
+const ChoiceButton = ({ choice, onClick, Image, isSelected }) => {
   return (
     <button
       onClick={() => onClick(choice)}
-      className={`bg-[#ffff] rounded-full w-[126px] h-[125px]   transition-colors hover:bg-[#5983ac] hover:text-white  focus:outline-none focus:ring-8 focus:ring-[#dc6b6b] focus:ring-offset-[5px] ${
+      className={`bg-[#ffff] rounded-full w-[126px] h-[125px] flex justify-center items-center   transition-colors  focus:outline-none focus:ring-8 focus:ring-[#dc6b6b] focus:ring-offset-[5px] ${
         isSelected ? "bg-[#5983ac]" : ""
-      } text-[black]` }
+      } text-[black]`}
     >
-      {choice.charAt(0).toUpperCase()}
+      {Image}
     </button>
   );
 };
@@ -23,6 +25,9 @@ const ChoiceButtonGroup = ({ choices, onClick, selectedChoice }) => {
           choice={choices[0]}
           onClick={onClick}
           isSelected={selectedChoice === choices[0]}
+          Image={
+            <img className="w-[68px] transform rotate-180" src={rock} alt="" />
+          }
         />
       </div>
       <div className="flex justify-between w-full max-w-xl gap-24">
@@ -30,11 +35,21 @@ const ChoiceButtonGroup = ({ choices, onClick, selectedChoice }) => {
           choice={choices[1]}
           onClick={onClick}
           isSelected={selectedChoice === choices[1]}
+          Image={
+            <img className="w-[85px] transform rotate-180" src={paper} alt="" />
+          }
         />
         <ChoiceButton
           choice={choices[2]}
           onClick={onClick}
           isSelected={selectedChoice === choices[2]}
+          Image={
+            <img
+              className="w-[90px] transform rotate-180"
+              src={scissor}
+              alt=""
+            />
+          }
         />
       </div>
     </div>
