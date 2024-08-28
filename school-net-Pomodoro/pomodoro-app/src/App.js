@@ -1,12 +1,10 @@
 import './App.css';
+import PomodoroTimer from './components/PomodoroTimer';
 
 function App() {
   return (
     <div className="App">
-      <h1 className="text-3xl font-bold underline bg-red-600">
-      Pomodoro App
-    </h1>
-
+    <PomodoroTimer />
     </div>
   );
 }
