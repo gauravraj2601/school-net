@@ -18,7 +18,6 @@ const TimerControls = ({
 
    const breakClick = () =>{
     setCurrentSession("break");
-    handleReset();
    }
     
   return (
@@ -26,7 +25,7 @@ const TimerControls = ({
       <div className="flex justify-center gap-4 mb-8">
         <button
           className={`px-4 py-2 font-semibold text-white rounded ${
-            currentSession === "work" ? "bg-blue-600" : "bg-gray-300"
+            currentSession === "work" ? "bg-color" : "bg-gray"
           }`}
           onClick={workClick}
         >
@@ -34,9 +33,10 @@ const TimerControls = ({
         </button>
         <button
           className={`px-4 py-2 font-semibold text-white rounded ${
-            currentSession === "break" ? "bg-blue-600" : "bg-gray-300"
+            currentSession === "break" ? "bg-color" : "bg-gray"
           }`}
-          onClick={() => setCurrentSession("break")}
+          // onClick={() => setCurrentSession("break")}
+          onClick={breakClick}
         >
           Break
         </button>
@@ -44,13 +44,13 @@ const TimerControls = ({
 
       <div className="flex justify-center gap-4 mb-8">
         <button
-          className="px-4 py-2 font-semibold text-white bg-blue-600 rounded"
+          className={`px-4 py-2 font-semibold text-white  rounded ${isTimerRunning? "bg-gray" : "bg-color"} `}
           onClick={handleStartStop}
         >
           {isTimerRunning ? "Stop" : "Start"}
         </button>
         <button
-          className="px-4 py-2 font-semibold text-white bg-gray-600 rounded"
+          className="px-4 py-2 font-semibold text-white bg-gray rounded"
           onClick={handleReset}
         >
           Reset
@@ -59,8 +59,8 @@ const TimerControls = ({
 
       <div className="flex justify-center gap-4">
         {currentSession === "work" && (
-        <div className="space-y-2">
-          <label className="font-semibold">
+        <div className="space-y-2 bg-text ">
+          <label className="font-bold">
             Work Duration
           </label>
           <input
@@ -68,6 +68,7 @@ const TimerControls = ({
             min="5"
             max="55"
             step="5"
+          
             value={workDuration}
             onChange={handleWorkDurationChange}
             className="w-full"
@@ -75,8 +76,8 @@ const TimerControls = ({
         </div>
         )}
         {currentSession === "break" && (
-        <div className="space-y-2">
-          <label className="font-semibold">
+        <div className="space-y-2 bg-text">
+          <label className="font-bold">
             Break Duration
           </label>
           <input

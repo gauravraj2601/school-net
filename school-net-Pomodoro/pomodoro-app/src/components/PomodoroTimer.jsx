@@ -92,8 +92,8 @@ const PomodoroTimer = () => {
   ]);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <div className="bg-[#222d5b] text-white rounded-lg p-8 shadow-lg w-full max-w-md">
+    <div className="flex flex-col items-center justify-center h-screen bg-[url('https://img.freepik.com/premium-photo/background_1173582-1614.jpg?w=740')] bg-center bg-cover ">
+      <div className="bg-[rgb(0,0,0,0.2)]  text-white rounded-lg pl-8 pt-6 pr-8 pb-4  shadow-lg w-full max-w-md">
         <TimerDisplay
           progressPercentage={progressPercentage}
           formattedTime={formattedTime}
